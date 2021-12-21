@@ -64,7 +64,7 @@ public class Activator implements BundleActivator,BundleListener {
 	@Override
 	public void bundleChanged(BundleEvent event) {
 		
-		System.out.println("Bundle : "+event.getBundle().getSymbolicName()+" "+getEventType(event));
+		System.out.println("Bundle "+event.getBundle().getSymbolicName()+" "+getEventType(event));
 	}
 
 }
