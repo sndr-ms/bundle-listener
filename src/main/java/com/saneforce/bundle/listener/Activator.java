@@ -17,12 +17,15 @@
 package com.saneforce.bundle.listener;
 
 import org.osgi.framework.BundleActivator;
+import java.util.logging.Logger;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.BundleEvent;
 import org.osgi.framework.BundleListener;
 
 public class Activator implements BundleActivator,BundleListener {
 
+	private Logger log= Logger.getLogger("bundle-logger");
+	
     public void start(BundleContext context) {
         System.out.println("Starting the bundle");
         context.addBundleListener(this);
@@ -64,7 +67,8 @@ public class Activator implements BundleActivator,BundleListener {
 	@Override
 	public void bundleChanged(BundleEvent event) {
 		
-		System.out.println("Bundle "+event.getBundle().getSymbolicName()+" "+getEventType(event));
+		log.info("Bundle "+event.getBundle().getSymbolicName()+" - "+event.getBundle().getVersion()+" "+getEventType(event));
+			
 	}
 
 }
